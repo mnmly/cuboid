@@ -2,6 +2,10 @@
 # cuboid
 
   Cuboid component.
+  
+  ☞ [Demo]
+
+  [Demo]: http://mnmly.github.com/cuboid/
 
 ## Installation
 
