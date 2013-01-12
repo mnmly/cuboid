@@ -1,0 +1,8 @@
+.cuboid{
+  position: absolute;
+  -webkit-transform-style: preserve-3d;
+}
+
+.face{
+  position: absolute;
+}
