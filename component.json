@@ -1,0 +1,20 @@
+{
+  "name": "cuboid",
+  "repo": "mnmly/cuboid",
+  "description": "Cuboid",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "component/domify": "*",
+    "mnmly/prefixed": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "styles": [
+    "cuboid.css"
+  ]
+}

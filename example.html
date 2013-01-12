@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html>
+  <link rel="stylesheet" href="build/build.css" type="text/css" media="screen" charset="utf-8">
+  <style type="text/css" media="screen">
+    .world{
+      -webkit-perspective: 1000px;
+         -moz-perspective: 1000px;
+              perspective: 1000px;
+    }
+    .cuboid{
+      -webkit-transition: 1s;
+         -moz-transition: 1s;
+              transition: 1s;
+      -webkit-transform: rotateY(-10deg);
+         -moz-transform: rotateY(-10deg);
+              transform: rotateY(-10deg);
+    }
+    .cuboid .face{
+      -webkit-transition: 1s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+      -moz-transition: 1s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+      transition: 1s cubic-bezier(0.860, 0.000, 0.070, 1.000);
+      border: 1px solid hsla(0, 0%, 20%, 1);
+      background-color: hsla(0, 0%, 100%, .8);
+    }
+    footer { position: absolute; bottom: 0; width: 100%; text-align: center; }
+    footer small{ margin-top: 70px; margin-bottom: 70px; font-size: .9em; display: block; font-family: monospace; text-align: center; color: hsl(0, 0%, 40%); }
+    footer small a{ text-decoration: none; font-weight: bold; color: hsl(0, 0%, 20%); }
+  </style>
+  <body>
+  <div class='world'>
+  </div>
+  
+  <footer>
+    <small>by <a href="http://mnmly.com" target="_blank">mnmly</a> / grab it on <a href="http://github.com/mnmly/cuboid/">github</a></small>
+  </footer>
+
+  <script type="text/javascript" src='build/build.js'></script>
+  <script type="text/javascript">
+    var Cuboid  = require( 'cuboid' ),
+        count   = 0,
+        set     = [ [ 100, 200, 300 ],
+                    [ 300, 100, 150 ],
+                    [ 200, 100, 100 ],
+                    [ 280, 200, 80 ] ]
+
+    world = document.querySelector( '.world' );
+    cuboid = new Cuboid
+    world.appendChild( cuboid.el );
+
+    cuboid.el.style.top = window.innerHeight / 2 + 'px';
+    cuboid.el.style.left = window.innerWidth / 2 + 'px';
+
+    var update = function(){
+      var d = set[count++];
+      w = d[0];
+      h = d[1];
+      d = d[2];
+      if( count === set.length ){
+        count = 0;
+      }
+      cuboid.update( w, h, d );
+    }
+    setInterval(update, 2000);
+    update();
+  </script>
+  </body>
+</html>
