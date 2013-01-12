@@ -46,10 +46,15 @@
     world = document.querySelector( '.world' );
     cuboid = new Cuboid
     world.appendChild( cuboid.el );
-
-    cuboid.el.style.top = window.innerHeight / 2 + 'px';
-    cuboid.el.style.left = window.innerWidth / 2 + 'px';
-
+    
+    var centerize = function(){
+      cuboid.el.style.top = window.innerHeight / 2 + 'px';
+      cuboid.el.style.left = window.innerWidth / 2 + 'px';
+    }
+    
+    centerize();
+    window.addEventListener('resize', centerize, false);
+    
     var update = function(){
       var d = set[count++];
       w = d[0];
